@@ -14,15 +14,20 @@ const FoodPartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await api.post("/api/auth/food-partner/login", {
-      email,
-      password
-    });
+    try {
+      const response = await api.post("/api/auth/food-partner/login", {
+        email,
+        password
+      });
 
-    console.log(response.data);
-    localStorage.setItem('authRole', 'food-partner');
+      console.log(response.data);
+      localStorage.setItem('authRole', 'food-partner');
 
-    navigate("/create-food"); // Redirect to create food page after login
+      navigate("/create-food"); // Redirect to create food page after login
+    } catch (err) {
+      alert("Please register first.");
+      navigate("/food-partner/register");
+    }
 
   };
 

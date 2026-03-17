@@ -29,17 +29,10 @@ const ProtectedUser = ({ children }) => {
 }
 
 const AppRoutes = () => {
-    const role = getAuthRole();
     return (
         <Router>
             <Routes>
-                <Route path="/" element={
-                    role === 'user'
-                        ? <Navigate to="/home" replace />
-                        : role === 'food-partner'
-                            ? <Navigate to="/create-food" replace />
-                            : <Navigate to="/register" replace />
-                } />
+                <Route path="/" element={<Navigate to="/register" replace />} />
                 <Route path="/register" element={<ChooseRegister />} />
                 <Route path="/user/register" element={<UserRegister />} />
                 <Route path="/user/login" element={<UserLogin />} />

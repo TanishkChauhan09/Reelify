@@ -14,15 +14,20 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await api.post("/api/auth/user/login", {
-      email,
-      password
-    });
+    try {
+      const response = await api.post("/api/auth/user/login", {
+        email,
+        password
+      });
 
-    console.log(response.data);
-    localStorage.setItem('authRole', 'user');
+      console.log(response.data);
+      localStorage.setItem('authRole', 'user');
 
-    navigate("/home"); // Redirect to home after login
+      navigate("/home"); // Redirect to home after login
+    } catch (err) {
+      alert("Please register first.");
+      navigate("/user/register");
+    }
 
   };
 
