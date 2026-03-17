@@ -19,6 +19,11 @@ app.get("/", (req,res)=>{
      res.send("Hello");
 })
 
+// simple health check for deployment diagnostics
+app.get("/healthz", (req, res) => {
+     res.status(200).json({ status: "ok" });
+});
+
 app.use('/api/auth',authRoutes);
 app.use('/api/food', foodRoutes);
 app.use('/api/food-partner', foodPartnerRoutes);
