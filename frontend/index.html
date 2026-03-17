@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+  </head>
+  <body>
+    <div id="root">Loading...</div>
+    <script type="module">
+      const root = document.getElementById('root');
+      root.textContent = 'Loading app…';
+      import('/src/main.jsx')
+        .catch((err) => {
+          console.error('Failed to start app:', err);
+          root.innerHTML = `
+            <div style="padding:24px;font-family:system-ui,-apple-system,Segoe UI,sans-serif;">
+              <h2 style="margin:0 0 8px;">App failed to start</h2>
+              <pre style="white-space:pre-wrap;color:#b91c1c;">${String(err?.message || err)}</pre>
+            </div>
+          `;
+        });
+    </script>
+  </body>
+</html>

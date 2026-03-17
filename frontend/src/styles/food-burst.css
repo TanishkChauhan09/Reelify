@@ -1,0 +1,51 @@
+.food-burst-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.food-burst {
+  position: absolute;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+}
+
+.food-burst-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateX(0px)
+    rotate(calc(-1 * var(--angle)));
+  font-size: 24px;
+  animation: burstOut 1.4s ease-out forwards;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+}
+
+@keyframes burstOut {
+  0% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateX(0px)
+      rotate(calc(-1 * var(--angle)))
+      scale(0.6);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--angle))
+      translateX(90px)
+      rotate(calc(-1 * var(--angle)))
+      scale(1);
+  }
+}

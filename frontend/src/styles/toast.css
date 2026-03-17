@@ -1,0 +1,18 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 96px;
+  transform: translateX(-50%);
+  background: #0f172a;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 9999;
+  max-width: calc(100% - 32px);
+  text-align: center;
+}
+
+.toast--success { background: #0f172a; }
+.toast--error { background: #b91c1c; }
